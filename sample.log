@@ -1,0 +1,44 @@
+INFO:aiogram:Bot: CatLovers [@CatLovers_testbot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:aiogram:Bot: CatLovers [@CatLovers_testbot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished coro=<Dispatcher._process_polling_updates() done, defined at C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:407> exception=TypeError("answer() missing 1 required positional argument: 'text'")>
+Traceback (most recent call last):
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 256, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "bot.py", line 31, in new_button
+    await message.answer(reply_markup=keyboard)
+TypeError: answer() missing 1 required positional argument: 'text'
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished coro=<Dispatcher._process_polling_updates() done, defined at C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:407> exception=TypeError("answer() missing 1 required positional argument: 'text'")>
+Traceback (most recent call last):
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 256, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "C:\vii\PythonProjects\test_TelegramBot\venv\lib\site-packages\aiogram\dispatcher\handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "bot.py", line 31, in new_button
+    await message.answer(reply_markup=keyboard)
+TypeError: answer() missing 1 required positional argument: 'text'
+INFO:aiogram:Bot: CatLovers [@CatLovers_testbot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:aiogram:Bot: CatLovers [@CatLovers_testbot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
