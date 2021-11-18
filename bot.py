@@ -37,12 +37,12 @@ async def new_button(message: types.Message):
 @dp.message_handler(content_types='text')
 async def show_cat(message: types.Message):
     new_message = message.text.lower().strip()
-    if new_message in ['котик', 'кот', 'кошка', 'кошечка', 'cat']:
+    if new_message in ['котик', 'кот', 'кошка', 'кошак', 'котяра', 'котейка', 'кошечка', 'cat']:
         res = requests.get('https://aws.random.cat/meow')
         if res:
             file = res.json()['file']
             await message.answer(file)
-    elif new_message in ['пес', 'пёс', 'песик', 'пёсик', 'собака', 'собачка', 'dog', 'doggy']:
+    elif new_message in ['пес', 'пёс', 'песик', 'пёсик', 'песель', 'пёсель', 'собака', 'собачка', 'dog', 'doggy']:
         res = requests.get('https://random.dog/woof.json')
         if res:
             file = res.json()['url']
