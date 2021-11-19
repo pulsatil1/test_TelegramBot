@@ -5,7 +5,7 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 
 # log level
-logging.basicConfig(level=logging.INFO, filename="sample.log")
+logging.basicConfig(level=logging.INFO)
 
 # bot init
 bot = Bot(token=config.TOKEN)
