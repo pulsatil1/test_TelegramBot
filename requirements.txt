@@ -1,0 +1,4 @@
+aiogram
+config
+requests
+logging
