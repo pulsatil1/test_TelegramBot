@@ -17,10 +17,10 @@ dp = Dispatcher(bot)
 async def new_button(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     # button = types.KeyboardButton(text="Котик")
-    buttons = ["Котик", "Пёсик"];
-    keyboard.add(*buttons)
-    buttons = ["Уточка", "Лисичка"];
-    keyboard.add(*buttons)
+    buttons1 = ["Котик", "Пёсик"];
+    buttons2 = ["Уточка", "Лисичка"];
+    keyboard.add(*buttons1)
+    keyboard.add(*buttons2)
     await message.answer("Используйте кнопки для получения животных!", reply_markup=keyboard)
 
 
