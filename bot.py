@@ -12,16 +12,6 @@ bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
 
 
-# @dp.message_handler(
-#     lambda message: message.text.lower().strip() in ["пес", 'пёс', 'песель', 'собака', 'собачка', 'dog', 'doggy'])
-# async def show_dog(message: types.Message):
-#     res = requests.get('https://random.dog/woof.json')
-#     if res:
-#         res_json = res.json()
-#         file = res_json['url']
-#         await message.answer(file)
-
-
 @dp.message_handler(commands=['start', 'buttons'])
 # @dp.message_handler(commands="start")
 async def new_button(message: types.Message):
