@@ -1,6 +1,6 @@
-import config
 import requests
 import logging
+# import config
 
 from aiogram import Bot, Dispatcher, executor, types
 
@@ -8,7 +8,7 @@ from aiogram import Bot, Dispatcher, executor, types
 logging.basicConfig(level=logging.INFO)
 
 # bot init
-bot = Bot(token=config.TOKEN)
+bot = Bot(token='2128682647:AAFh9dDAHiIn0_ssjP_LMDki_Tt_oHrhGMM')
 dp = Dispatcher(bot)
 
 
@@ -17,10 +17,10 @@ dp = Dispatcher(bot)
 async def new_button(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     # button = types.KeyboardButton(text="Котик")
-    buttons = ["Котик", "Пёсик"];
-    keyboard.add(*buttons)
-    buttons = ["Уточка", "Лисичка"];
-    keyboard.add(*buttons)
+    buttons1 = ["Котик", "Пёсик"]
+    buttons2 = ["Уточка", "Лисичка"]
+    keyboard.add(*buttons1)
+    keyboard.add(*buttons2)
     await message.answer("Используйте кнопки для получения животных!", reply_markup=keyboard)
 
 
