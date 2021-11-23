@@ -1,4 +1,3 @@
 aiogram
-config
 requests
 logging
