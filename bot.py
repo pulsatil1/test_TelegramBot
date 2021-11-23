@@ -1,6 +1,5 @@
 import requests
 import logging
-# import config
 
 from aiogram import Bot, Dispatcher, executor, types
 
