@@ -12,42 +12,37 @@ dp = Dispatcher(bot)
 
 
 @dp.message_handler(commands=['start', 'buttons'])
-# @dp.message_handler(commands="start")
 async def new_button(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    # button = types.KeyboardButton(text="Котик")
-    buttons1 = ["Котик", "Пёсик"]
-    buttons2 = ["Уточка", "Лисичка"]
+    buttons1 = ["cat", "dog"]
+    buttons2 = ["duck", "fox"]
     keyboard.add(*buttons1)
     keyboard.add(*buttons2)
-    await message.answer("Используйте кнопки для получения животных!", reply_markup=keyboard)
+    await message.answer("Use buttons to get animal images!", reply_markup=keyboard)
 
 
 @dp.message_handler(content_types='text')
-async def show_cat(message: types.Message):
+async def show_animal(message: types.Message):
     new_message = message.text.lower().strip()
-    if new_message in ['котик', 'кот', 'кошка', 'кошак', 'котяра', 'котейка', 'кошечка', 'cat']:
-        res = requests.get('https://aws.random.cat/meow')
+    dict_animals = {'cat':'https://aws.random.cat/meow', 'dog':'https://random.dog/woof.json',
+                    'duck':'https://random-d.uk/api/v2/random', 'fox':'https://randomfox.ca/floof/'}
+    if new_message in dict_animals:
+        res = requests.get(dict_animals[new_message])
         if res:
             file = res.json()['file']
-            await message.answer(file)
-    elif new_message in ['пес', 'пёс', 'песик', 'пёсик', 'песель', 'пёсель', 'собака', 'собачка', 'dog', 'doggy']:
-        res = requests.get('https://random.dog/woof.json')
-        if res:
-            file = res.json()['url']
-            await message.answer(file)
-    elif new_message in ['утка', 'уточка', 'утя', 'утенок', 'утёнок', 'ducky']:
-        res = requests.get('https://random-d.uk/api/v2/random')
-        if res:
-            file = res.json()['url']
-            await message.answer(file)
-    elif new_message in ['лиса', 'лисичка', 'лисица', 'лис', 'fox', 'foxy']:
-        res = requests.get('https://randomfox.ca/floof/')
-        if res:
-            file = res.json()['image']
-            await message.answer(file)
+            json_file = res.json()
+            file = ''
+            if 'file' in json_file:
+                file = res.json()['file']
+            elif 'url' in json_file:
+                file = res.json()['url']
+            elif 'image' in json_file:
+                file = res.json()['image']
+
+            if file:
+                await message.answer(file)
     else:
-        await message.answer('Я не знаю такого животного')
+        await message.answer('I don\'t know such type of animal.\nCurrently supported these types of animals: ' + ', '.join(dict_animals.keys()))
 
 
 # run long-polling
