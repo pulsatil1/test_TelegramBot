@@ -29,7 +29,6 @@ async def show_animal(message: types.Message):
     if new_message in dict_animals:
         res = requests.get(dict_animals[new_message])
         if res:
-            file = res.json()['file']
             json_file = res.json()
             file = ''
             if 'file' in json_file:
